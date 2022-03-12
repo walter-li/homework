@@ -14,7 +14,7 @@ public class CountMapper extends Mapper<LongWritable, Text, Text, FlowBean> {
         String[] params = val.split("\t");
         String phoneNum = params[1];
         String up = params[8];
-        String down = params[8];
+        String down = params[9];
         FlowBean ph = new FlowBean();
         ph.setUp(Long.parseLong(up));
         ph.setDown(Long.parseLong(down));
