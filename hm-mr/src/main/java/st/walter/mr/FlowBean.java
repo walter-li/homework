@@ -1,12 +1,12 @@
 package st.walter.mr;
 
-import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class Phone implements Writable {
+public class FlowBean implements WritableComparable<FlowBean> {
     private Long up;
     private Long down;
     private Long totalSize;
@@ -30,7 +30,7 @@ public class Phone implements Writable {
         return up;
     }
 
-    public Phone setUp(Long up) {
+    public FlowBean setUp(Long up) {
         this.up = up;
         return this;
     }
@@ -39,7 +39,7 @@ public class Phone implements Writable {
         return down;
     }
 
-    public Phone setDown(Long down) {
+    public FlowBean setDown(Long down) {
         this.down = down;
         return this;
     }
@@ -48,7 +48,7 @@ public class Phone implements Writable {
         return totalSize;
     }
 
-    public Phone setTotalSize(Long totalSize) {
+    public FlowBean setTotalSize(Long totalSize) {
         this.totalSize = totalSize;
         return this;
     }
@@ -56,5 +56,10 @@ public class Phone implements Writable {
     @Override
     public String toString() {
         return up+"\t"+down+"\t"+totalSize;
+    }
+
+    @Override
+    public int compareTo(FlowBean o) {
+        return (int) (o.totalSize-this.totalSize);
     }
 }
