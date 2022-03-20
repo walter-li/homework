@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>hm-mr</module>
+        <module>hbaseapi</module>
     </modules>
 
 </project>
